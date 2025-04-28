@@ -1,0 +1,7 @@
+lemagdestendances.laredoute.yahoo.fr
+lemagdestendances.yahoo.fr
+pop.mail.yahoo.fr
+smtp.mail.yahoo.fr
+ready.yahoo.fr
+retrospective.yahoo.fr
+www.vosmeilleuresidees.yahoo.fr

@@ -1,5 +1,6 @@
 import nmap
-
+from core.modules.database import *
+import typer
 # Initialisation de l'outil nmap
 nm = nmap.PortScanner()
 
@@ -42,3 +43,13 @@ def osDetection(ip: str) -> dict:
         return { 'error': f"Aucune information sur l'OS pour {ip}" }
     except Exception as e:
         return { 'error': f"Erreur de détection d'OS : {e}" }
+
+
+def osDetect(ip):
+    result = osDetection(ip)
+    init_db()
+    addScannerOutput("osDetect", str(result))
+    if isinstance(result, dict) and 'os' in result:
+        typer.echo(f"\n🧠 Système d'exploitation détecté : {result['os']}")
+    else:
+        typer.secho(f"❌ OS non détecté ou erreur : {result}", fg=typer.colors.RED)

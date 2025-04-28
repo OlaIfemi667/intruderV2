@@ -1,5 +1,6 @@
 from core.modules.scanner import *
 from core.modules.database import *
+from sublister.sublist3r import *
 import typer
 
 from typing import Annotated
@@ -20,19 +21,18 @@ def netRecon(ip: Annotated[str, typer.Argument(help="IP address to scan")], port
             typer.echo(f"    └── Version : {details['version']}\n")
     else:
         typer.secho(result, fg=typer.colors.RED)
+    
+    osDetect(ip)
         
+
+
+
 
 @app.command()
-def osDetect(ip: Annotated[str, typer.Argument(help="IP address to scan OS")]):
-    result = osDetection(ip)
-    init_db()
-    addScannerOutput("osDetect", str(result))
-    if isinstance(result, dict) and 'os' in result:
-        typer.echo(f"\n🧠 Système d'exploitation détecté : {result['os']}")
-    else:
-        typer.secho(f"❌ OS non détecté ou erreur : {result}", fg=typer.colors.RED)
+def sublister( domain: Annotated[str, typer.Argument(help="domains to scan to scan OS")]):
+    passsubdomains = sublisterMain(domain, 40, f"text/{domain}.txt", ports= None, silent=False, verbose= False, enable_bruteforce= False, engines=None)
 
-        
+
 
 if __name__ == "__main__":
     app()

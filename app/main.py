@@ -14,3 +14,10 @@ def showAllScanType():
 def showScanType(scannerName):
     return f"<p>Type de scan : {scannerName}</p>"
 
+@app.route("/api/v1/profiler")
+def showAllScanType():
+    return "<p>Profiler</p>"
+
+@app.route("/api/v1/outils/<utilName>")
+def showScanType(scannerName):
+    return f"<p>Type de scan : {scannerName}</p>"

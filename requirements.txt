@@ -3,4 +3,6 @@ python-nmap
 python-whois
 typer
 flask
-pymetasploit3
+argparse
+dnspython
+requests
