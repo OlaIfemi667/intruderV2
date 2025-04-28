@@ -5,7 +5,7 @@ Cet outil est un projet hybride combinant des fonctionnalités de tests d'intrus
 ## Fonctionnalités
 
 ### 1. Wrapper d'outils de Pentest
-Le projet intègre un wrapper permettant d'exécuter divers outils de pentest populaires de manière centralisée. Cela simplifie l'utilisation d'outils comme `nmap`, `sublist3r`, ``, et bien d'autres à travers une interface unifiée.
+Le projet intègre un wrapper permettant d'exécuter divers outils de pentest populaires de manière centralisée. Cela simplifie l'utilisation d'outils comme `nmap`, `sublist3r` and else et bien d'autres à travers une interface unifiée.
 
 ### 2. Création de Profil avec IA
 Une fonctionnalité innovante permettant de générer des profils numériques, comprenant :
