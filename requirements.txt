@@ -2,3 +2,5 @@ openai
 python-nmap
 python-whois
 typer
+flask
+pymetasploit3
