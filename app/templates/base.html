@@ -17,6 +17,14 @@
             text-decoration: none;
             
         }
+        .breadcrumb{
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+        }
+        .breadcrumb a{
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -29,6 +37,9 @@
                 <li><a href="#">Autre Outils</a></li>
             </ul>
         </nav>
+        <ol class="breadcrumb">
+            {% block breadcrumb %} {% endblock %}    
+        </ol>
     </header>
 
     <main>

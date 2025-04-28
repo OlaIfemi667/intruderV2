@@ -1,6 +1,5 @@
 import sqlite3
 
-import sqlite3
 
 def init_db(db_path='database.db'):
     try:

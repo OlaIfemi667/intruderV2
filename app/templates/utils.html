@@ -1,5 +1,18 @@
 {% extends "base.html" %}
 
+
+{% block breadcrumb %}
+    <li><a href="/home">Home / </a></li>
+    <li><a href="/home/outils">Outils / </a></li>
+{% endblock %} 
+
+
 {% block content%}
-    <h1>Utils</h1>
+    <div>
+        <h1>Utils</h1>
+        <ul>
+            <li><a href="/home/outils/networkscanner">Network scanner</a></li>
+            <li><a href="/home/outils/sublist3r">Sublist3r</a></li>
+        </ul>
+    </div>
 {% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block breadcrumb %}
+    <li><a href="/home">Home / </a></li>
+    <li><a href="/home/outils">Outils / </a></li>
+    {% if utilName == "networkscanner" %}
+        <li><a href="/home/outils/networkscanner">Network Scanner / </a></li>
+    {% elif utilName == "sublist3r" %}
+        <li><a href="/home/outils/sublist3r">Sublist3r/ </a></li>
+    {% endif %}
+{% endblock %} 
+
+
+{% block content%}
+    {% if utilName == "networkscanner" %}
+        <h1>Network Scanner</h1>
+        <p>Network Scanner est un outil qui permet de scanner un réseau pour découvrir les hôtes et les services actifs.</p>
+        <p>Il utilise la bibliothèque scapy pour envoyer des paquets ARP et ICMP afin de détecter les appareils connectés au réseau.</p>
+        <p>Il peut également effectuer une analyse de port pour identifier les services en cours d'exécution sur chaque hôte.</p>
+        <form action="#" method="POST">
+            <label for="ip">Adresse IP ou plage d'adresses :</label>
+            <input type="text" id="ip" name="ip" required>
+            <button type="submit">Scanner</button>
+        </form>
+    {% elif utilName == "sublist3r" %}
+        <h1>Sublist3r</h1>
+        <p>Sublist3r est un outil de reconnaissance de sous-domaines qui permet de découvrir les sous-domaines d'un domaine donné.</p>
+        <p>Il utilise plusieurs moteurs de recherche et services d'API pour collecter des informations sur les sous-domaines.</p>
+        <p>Il peut également effectuer une recherche DNS pour valider les sous-domaines trouvés.</p>
+
+        <form action="#" method="POST">
+            <label for="domain">Nom de domaine :</label>
+            <input type="text" id="domain" name="domain" required>
+            <button type="submit">Scanner</button>
+        </form>
+    {% endif %} 
+{% endblock %}
