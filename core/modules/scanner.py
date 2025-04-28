@@ -32,7 +32,7 @@ def portScanner(ip: str, ports: str):
         return f"Erreur pendant le scan: {e}"
     
 
-
+##functions for OS detections
 def osDetection(ip: str) -> dict:
     try:
         nm.scan(ip, arguments='-O')  # -O = OS detection

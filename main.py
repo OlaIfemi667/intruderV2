@@ -7,6 +7,9 @@ from typing import Annotated
 
 app = typer.Typer()
 
+
+#command for netword reconnaissance it is basically a nmap showing, service, version, ports and OS type
+
 @app.command()
 def netRecon(ip: Annotated[str, typer.Argument(help="IP address to scan")], ports: Annotated[str, typer.Option(help="Ports to scan (default is 22-80")] = "22-80"):
     result = portScanner(ip, ports)
@@ -25,11 +28,11 @@ def netRecon(ip: Annotated[str, typer.Argument(help="IP address to scan")], port
     osDetect(ip)
         
 
-
-
+#find subdomains for a domain 
 
 @app.command()
 def sublister( domain: Annotated[str, typer.Argument(help="domains to scan to scan OS")]):
+    #Ici j'ai utiliser la function main de sublister que j'ai bebaptisé sublisterMain pour eviter les conflits.
     passsubdomains = sublisterMain(domain, 40, f"text/{domain}.txt", ports= None, silent=False, verbose= False, enable_bruteforce= False, engines=None)
 
 
