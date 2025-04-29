@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #linkId{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+        #linkId li{
+            list-style: none;
+        }
+        #linkId li a{
+            text-decoration: none;
+            
+        }
+        .breadcrumb{
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+        }
+        .breadcrumb a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul id="linkId">
+                <li><a href="/home">Intruder</a></li>
+                <li><a href="/home/outils">Outils</a></li>
+                <li><a href="/home/profiler">Profiler</a></li>
+                <li><a href="#">Autre Outils</a></li>
+            </ul>
+        </nav>
+        <ol class="breadcrumb">
+            {% block breadcrumb %} {% endblock %}    
+        </ol>
+    </header>
+
+    <main>
+        {% block content %} {% endblock %}
+        <section id="deepSeek">
+
+        </section>
+    </main>
+    
+</body>
+</html>
