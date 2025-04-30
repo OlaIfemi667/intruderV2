@@ -2,6 +2,7 @@ from core.modules.scanner import *
 from core.modules.database import *
 from sublister.sublist3r import *
 import typer
+from subprocessUtils.subprocess import *
 
 from typing import Annotated
 
@@ -35,7 +36,14 @@ def sublister( domain: Annotated[str, typer.Argument(help="domains to scan to sc
     #Ici j'ai utiliser la function main de sublister que j'ai bebaptisé sublisterMain pour eviter les conflits.
     passsubdomains = sublisterMain(domain, 40, f"text/{domain}.txt", ports= None, silent=False, verbose= False, enable_bruteforce= False, engines=None)
 
+@app.command()
+def webfuzzer(url: Annotated[str, typer.Argument(help="an url")]):
+    if not is_valid_url(url):
+        print("❌ URL invalide. Utilise un format comme http://example.com")
+        raise typer.Exit(code=1)
 
+    domain = urlparse(url).netloc  # extrait le domaine
+    asyncio.run(runCommand(f"nikto -h {domain}"))
 
 if __name__ == "__main__":
     app()
