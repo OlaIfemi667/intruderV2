@@ -35,6 +35,7 @@ def netRecon(ip: Annotated[str, typer.Argument(help="IP address to scan")], port
 def sublister( domain: Annotated[str, typer.Argument(help="domains to scan to scan OS")]):
     #Ici j'ai utiliser la function main de sublister que j'ai bebaptisé sublisterMain pour eviter les conflits.
     passsubdomains = sublisterMain(domain, 40, f"text/{domain}.txt", ports= None, silent=False, verbose= False, enable_bruteforce= False, engines=None)
+    addScannerOutput("sublister", str(passsubdomains))
 
 @app.command()
 def webfuzzer(url: Annotated[str, typer.Argument(help="an url")]):
@@ -43,7 +44,7 @@ def webfuzzer(url: Annotated[str, typer.Argument(help="an url")]):
         raise typer.Exit(code=1)
 
     domain = urlparse(url).netloc  # extrait le domaine
-    asyncio.run(runCommand(f"nikto -h {domain}"))
+    asyncio.run(runCommand(f"nikto -h {domain}", "webfuzzer"))
 
 if __name__ == "__main__":
     app()
