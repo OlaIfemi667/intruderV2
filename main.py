@@ -14,6 +14,7 @@ app = typer.Typer()
 @app.command()
 def netRecon(ip: Annotated[str, typer.Argument(help="IP address to scan")], ports: Annotated[str, typer.Option(help="Ports to scan (default is 22-80")] = "22-80"):
     result = portScanner(ip, ports)
+    resultOutput = ""
     init_db()
     addScannerOutput("netRecon", str(result))
     if isinstance(result, dict):

@@ -25,6 +25,18 @@
         .breadcrumb a{
             text-decoration: none;
         }
+        #outputAndAi{
+            padding: 20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+        #output, #ai{
+            background-color: rgb(208, 208, 208);
+            width: 30%;
+            height: 30vh;
+            margin: 30px;
+        }
     </style>
 </head>
 <body>
@@ -44,9 +56,17 @@
 
     <main>
         {% block content %} {% endblock %}
-        <section id="deepSeek">
-
-        </section>
+        <div id="outputAndAi">
+            <div id="output">
+                <h3>Output</h3>
+                {% block outputContent %} {% endblock %}
+               
+            </div>
+            <div id="ai">
+                <h3>Ai</h3>
+                <p></p>
+            </div>
+        </div>
     </main>
     
 </body>

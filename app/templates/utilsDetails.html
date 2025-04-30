@@ -33,5 +33,18 @@
             <input type="text" id="domain" name="domain" required>
             <button type="submit">Scanner</button>
         </form>
-    {% endif %} 
+    
+    {% elif utilName == "nikto" %}
+        <h1>Nikto</h1>
+
+        <form action="#" method="POST">
+            <label for="domain">url :</label>
+            <input type="text" id="url" name="url" required>
+            <button type="submit">Scanner</button>
+        </form>
+    {% endif %}
+{% endblock %}
+
+{% block outputContent %}
+        <p>{{output}}</p>
 {% endblock %}
