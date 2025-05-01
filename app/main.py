@@ -23,7 +23,7 @@ def showUtilsDetail(utilName):
             return render_template("utilsDetails.html", utilName=utilName, output = out)
         elif utilName == "sublist3r": 
             passsubdomains = sublisterMain(request.form["domain"], 40, f"../text/{request.form["domain"]}.txt", ports= None, silent=False, verbose= False, enable_bruteforce= False, engines=None)
-            addScannerOutput("sublister", passsubdomains)
+            addScannerOutput("sublister", str(passsubdomains))
             return render_template("utilsDetails.html", utilName=utilName, output = passsubdomains)
     else:
         return render_template("utilsDetails.html", utilName=utilName)

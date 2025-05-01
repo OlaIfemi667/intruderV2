@@ -1,0 +1,4 @@
+www.chichopital.bj
+backoffice.chichopital.bj
+mail.chichopital.bj
+www.mail.chichopital.bj
