@@ -46,6 +46,5 @@ def webfuzzer(url: Annotated[str, typer.Argument(help="an url")]):
 
     domain = urlparse(url).netloc  # extrait le domaine
     asyncio.run(runCommand(f"nikto -h {domain}", "webfuzzer"))
-
 if __name__ == "__main__":
     app()

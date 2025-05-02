@@ -9,15 +9,20 @@ async def runCommand(cmd, type):
         stderr=asyncio.subprocess.PIPE)
 
     stdout, stderr = await proc.communicate()
-
+    a = ""
     print(f'[{cmd!r} exited with {proc.returncode}]')
     if stdout:
         print(f'[stdout]\n{stdout.decode()}')
-        addScannerOutput(type, stdout)
+        a = addScannerOutput(type, stdout)
+
     if stderr:
         print(f'[stderr]\n{stderr.decode()}')
+    
 
 
 def is_valid_url(url: str) -> bool:
     parsed = urlparse(url)
     return all([parsed.scheme in ('http', 'https'), parsed.netloc])
+
+
+

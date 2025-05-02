@@ -31,3 +31,4 @@ def addScannerOutput(scan_type, output, db_path='database.db'):
         print(f"[!] Database error: {e}")
     except Exception as e:
         print(f"[!] Unexpected error: {e}")
+    return output

@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 from core.modules.database import *
 from core.modules.scanner import *
 from sublister.sublist3r import *
+from subprocessUtils.subprocess import *
 app = Flask(__name__)
 
 @app.route("/")
@@ -25,7 +26,9 @@ def showUtilsDetail(utilName):
             passsubdomains = sublisterMain(request.form["domain"], 40, f"../text/{request.form["domain"]}.txt", ports= None, silent=False, verbose= False, enable_bruteforce= False, engines=None)
             addScannerOutput("sublister", str(passsubdomains))
             return render_template("utilsDetails.html", utilName=utilName, output = passsubdomains)
-    else:
+        elif utilName == "nikto":
+            print("NIKTOOOOOOOOOOOOOOOOOOOOO")
+            
         return render_template("utilsDetails.html", utilName=utilName)
 
 @app.route("/home/profiler")
